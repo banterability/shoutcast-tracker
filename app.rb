@@ -6,7 +6,8 @@ require 'uri'
 
 url = URI.parse("http://live.scpr.org/")
 request = Net::HTTP::Get.new(url.path)
-request.add_field("User-Agent", "Mozilla/4.0 (StatICE/1.0)") #need recognizable UA string since stream is on port 80
+request.add_field("User-Agent", "Mozilla/4.0 (Shoutcast Tracker/1.0)") 
+#need recognizable UA string since stream is on port 80
 
 response = Net::HTTP.new(url.host, url.port).start do |http|
   http.request(request)
